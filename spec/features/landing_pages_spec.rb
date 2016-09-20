@@ -84,7 +84,7 @@ RSpec.feature "LandingPages", type: :feature do
       Given 'I am on the landing page' do
         visit '/'
       end
-      Then 'I can add a new apartment with photo' do
+      Then 'I can add a new apartment with photo and see it' do
         click_link 'New Apartment'
         fill_in 'apartment[address1]', with: '3803 Ray St.'
         fill_in 'apartment_address2', with: 'Suite B'

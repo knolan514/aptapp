@@ -59,7 +59,6 @@ RSpec.feature "AptShowPages", type: :feature do
         visit '/apartments/'
         click_link 'Show'
         expect(page.find_by_id('map')).to_not eq nil
-        expect(page.find_by_id('map')).to_not eq nil
       end
     end
   end
