@@ -14,6 +14,7 @@ RSpec.describe Apartment, type: :model do
     apartment1.postal_code = "92104"
     apartment1.state = "CA"
     apartment1.country = "USA"
+    apartment1.image_file_name = "spec/assets/apt.jpeg"
     expect(apartment1.save).to be true
   end
 
@@ -25,6 +26,7 @@ RSpec.describe Apartment, type: :model do
     apartment2.postal_code = "92104"
     apartment2.state = "CA"
     apartment2.country = "USA"
+    apartment2.image_file_name = "spec/assets/apt.jpeg"
     apartment2.save
     apartment3 = Apartment.find_by_address1("3803 Ray St.")
     expect(apartment3.address1).to eq "3803 Ray St."
@@ -33,6 +35,7 @@ RSpec.describe Apartment, type: :model do
     expect(apartment3.postal_code).to eq "92104"
     expect(apartment3.state).to eq "CA"
     expect(apartment3.country).to eq "USA"
+    expect(apartment3.image_file_name).to eq "spec/assets/apt.jpeg"
     expect(apartment3.full_address).to eq "3803 Ray St., Suite B, San Diego, 92104, CA, USA"
   end
 

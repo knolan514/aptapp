@@ -17,6 +17,7 @@ RSpec.feature "AptShowPages", type: :feature do
         fill_in 'apartment[owner_name]', with: 'The Hills'
         fill_in 'apartment[contact_time]', with: 'Monday - Saturday 9-6, Sunday 12-5'
         fill_in 'apartment[owner_phone]', with: '213-555-1212'
+        attach_file "apartment[image]", "spec/assets/apt.jpeg"
         click_button 'Create Apartment'
       end
       Then 'I can see a map with this apt on the show page' do
@@ -51,6 +52,7 @@ RSpec.feature "AptShowPages", type: :feature do
         fill_in 'apartment[owner_name]', with: 'The Hills'
         fill_in 'apartment[contact_time]', with: 'Monday - Saturday 9-6, Sunday 12-5'
         fill_in 'apartment[owner_phone]', with: '213-555-1212'
+        attach_file "apartment[image]", "spec/assets/apt.jpeg"
         click_button 'Create Apartment'
       end
       Then 'I can see a map with this apt and my location on the show page' do
