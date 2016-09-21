@@ -6,8 +6,8 @@ RSpec.describe User, type: :model do
   end
   it "has a user name and email" do
     u1 = User.new
-    u1.name = "Johnny Smith"
     u1.email = "jsmith@gmailsforreal.com"
+    u1.password = "JohnnySmith"
     expect(u1.save).to be true
   end
 end
