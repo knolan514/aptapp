@@ -31,6 +31,8 @@ gem 'paperclip'
 #add devise gem
 gem 'devise', '~> 4.2'
 
+# add omniauth-twitter devise gem
+gem 'omniauth-twitter'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
