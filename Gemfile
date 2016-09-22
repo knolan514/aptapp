@@ -34,6 +34,10 @@ gem 'devise', '~> 4.2'
 # add omniauth-twitter devise gem
 gem 'omniauth-twitter'
 
+# add CanCanCan and Rolify
+gem 'cancancan'
+gem 'rolify'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

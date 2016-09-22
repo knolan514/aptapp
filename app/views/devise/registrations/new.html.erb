@@ -1,42 +1,62 @@
-<h2>Sign up</h2>
+<h2>Sign Up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.name :name, autofocus: true %>
-  </div>
 
+<div class="row">
   <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    </div>
   </div>
+</div>
+<br>
 
+<div class="row">
   <% if f.object.password_required? %>
     <div class="form-group">
-      <%= f.label :password %>
+      <%= f.label :password, class: "col-sm-2 control-label" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <% end %>
+      <div class="col-sm-10">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
     </div>
-  
-    <div class="form-group">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-  <% end %>
-  <div class="form-group">
-    <%= f.label :avatar, class: "control-label" %>
-    <div class="col-sm-10">
-      <%= f.file_field :avatar, class: "form-control" %>
-    </div>
-  </div>
+</div>
+<br>
 
-  <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-primary"  %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    </div>
   </div>
+</div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :avatar, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.file_field :avatar, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+    <div class="actions">
+      <%= f.submit "Sign Up", class:"btn btn-primary" %>
+    </div>
+    <br>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+    </div>
+  </div>

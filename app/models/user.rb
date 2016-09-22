@@ -1,13 +1,18 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
-  # validates :name, presence: true
-  # validates :email, presence: true, email: true
-  # validates :email, uniqueness: true
 
   has_many :apartments
+
+  #assign default role of renter to user
+  after_create :assign_role
+
+  def assign_role
+    add_role(:renter)
+  end
 
   has_attached_file :avatar, styles: { small: "64x64", med: "100x100", large: "200x200" }
   validates_attachment :avatar,
