@@ -57,7 +57,7 @@
 
 <%= link_to image_tag(@apartment.image.url(:large)), @apartment.image.url %>
 
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
+<%= link_to 'Edit', edit_apartment_path(@apartment), :class => "btn btn-xs btn-primary" %> |
+<%= link_to 'Back', apartments_path, :class => "btn btn-xs btn-primary" %>
 
 <div id="map" data-apartment-id="<%=@apartment.id%>"></div>

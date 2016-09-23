@@ -43,6 +43,22 @@
     <% end %>
   </tbody>
 </table>
+<div id="allmap"></div>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({
+    provider: {},
+    internal: {id: 'allmap'}
+  },
+  function() {
+    markers = handler.addMarkers(<%=raw @pindrop.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(12);
+  }
+);
+</script>
 
 <br>
 

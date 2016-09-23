@@ -7,6 +7,11 @@ class ApartmentsController < ApplicationController
   # GET /apartments.json
   def index
     @apartments = Apartment.all
+    @pindrop = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
+      marker.lat apartment.latitude
+      marker.lng apartment.longitude
+      marker.infowindow apartment.full_address
+    end
   end
 
   # GET /apartments/1
@@ -29,6 +34,16 @@ class ApartmentsController < ApplicationController
     end
     render json: @hash.to_json
   end
+# # method to map all apartment locations
+#   def map_all_locations
+#     @apartments = Apartment.all
+#     @hash = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
+#       marker.lat apartment.latitude
+#       marker.lng apartment.longitude
+#       marker.infowindow apartment.full_address
+#     end
+#     render json: @hash.to_json
+#   end
 
   # GET /apartments/new
   def new
