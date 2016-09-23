@@ -66,13 +66,13 @@
 
     <strong>Current user:</strong>
     <% if !current_user.nil? %>
-      <%= current_user.name + ' | ' + current_user.email + ' (' + current_user.roles.pluck(:name).join(',') + ')'%>
+      <%= link_to image_tag(current_user.avatar.url(:small)), current_user.avatar.url %><%= current_user.email + ' (' + current_user.roles.pluck(:name).join(',') + ')'%>
       <%= link_to "Sign out", destroy_user_session_path, :class => "btn btn-xs btn-primary", method: :delete%>
     <% end %>
     <% if !current_user.nil? && current_user.has_role?(:admin) %>
       <%= link_to "Admin page", admin_path, :class => "btn btn-xs btn-primary" %>
     <% end %>
-    
+
 
     <%= yield %>
   </div>

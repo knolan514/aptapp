@@ -20,3 +20,5 @@
   <dd><%= link_to image_tag(@user.avatar.url(:small)), @user.avatar.url %></dd>
 
 </dl>
+
+<%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn btn-xs btn-primary" %> 
