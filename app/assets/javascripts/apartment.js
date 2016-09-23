@@ -49,26 +49,7 @@ function loadAndCreateGmap() {
       }
     });
   }
-  // if ($('#allmap').length > 0) {
-  //   // Access the data-apartment-id attribute on the map element
-  //   var apartmentId = $('#allmap').attr('data-apartment-id');
-  //
-  //   $.ajax({
-  //     dataType: 'json',
-  //     url: '/apartments',
-  //     method: 'GET',
-  //     data: '',
-  //     success: function(data) {
-  //       createGmap(data);
-  //     },
-  //     error: function(jqXHR, textStatus, errorThrown) {
-  //       alert("Getting map data failed: " + errorThrown);
-  //     }
-  //   });
-  // }
 };
-
-
 
 // Create the map when the page loads the first time
 $(document).on('ready', loadAndCreateGmap);

@@ -6,7 +6,13 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
-    @apartments = Apartment.all
+    if params[:search].nil?
+      @apartments = Apartment.all
+    else
+      @apartments = Apartment.search(params[:search])
+    end
+
+
     @pindrop = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
       marker.lat apartment.latitude
       marker.lng apartment.longitude
@@ -34,16 +40,7 @@ class ApartmentsController < ApplicationController
     end
     render json: @hash.to_json
   end
-# # method to map all apartment locations
-#   def map_all_locations
-#     @apartments = Apartment.all
-#     @hash = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
-#       marker.lat apartment.latitude
-#       marker.lng apartment.longitude
-#       marker.infowindow apartment.full_address
-#     end
-#     render json: @hash.to_json
-#   end
+
 
   # GET /apartments/new
   def new
@@ -103,6 +100,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:latitude, :longitude, :address1, :address2, :city, :postal_code, :state, :country, :image,  :owner_name, :contact_time, :owner_phone)
+      params.require(:apartment).permit(:latitude, :longitude, :address1, :address2, :city, :postal_code, :state, :country, :image,  :owner_name, :contact_time, :owner_phone, :search)
     end
 end
